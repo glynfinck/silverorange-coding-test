@@ -55,6 +55,9 @@
   display: flex;
   flex-direction: column;
   background-color: whitesmoke;
+  padding-top: 3rem;
+  margin-top: 3rem;
+  border: 1px solid gray;
 }
 
 .repo-detail-readme-title {
@@ -62,6 +65,6 @@
   text-align: left;
 }
 
-.repo-detial-readme-content {
+.repo-detail-readme-content {
   flex-grow: 1 1 auto;
 }

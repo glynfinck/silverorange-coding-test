@@ -33,8 +33,8 @@ export function App() {
           <Route path="/repos/:name">
             <RepoDetailPage repos={repos} error={error} />
           </Route>
-          <Route repos={repos} error={error} path="/repos">
-            <RepoListPage />
+          <Route path="/repos">
+            <RepoListPage repos={repos} error={error} />
           </Route>
         </Switch>
       </Router>

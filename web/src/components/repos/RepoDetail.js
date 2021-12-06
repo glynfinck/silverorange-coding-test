@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
+import { Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 
 import './RepoDetail.css';
 
@@ -12,15 +14,29 @@ import './RepoDetail.css';
 const RepoDetail = (props) => {
   const { name } = useParams();
   const { repos } = props;
+  const [readme, setReadme] = useState(null);
 
   const repo = repos.find((repository) => {
     return repository.name === name;
   });
 
+  useEffect(() => {
+    async function fetchAsync(repoName) {
+      const response = await fetch(
+        `https://raw.githubusercontent.com/${repoName}/master/README.md`
+      );
+      const text = await response.text();
+      setReadme(text);
+    }
+    if (repo) {
+      fetchAsync(repo.full_name);
+    }
+  }, [repo]);
+
   if (repo) {
     return (
       <div className="repo-detail">
-        <button className="btn btn-primary">Back</button>
+        <Link to="/repos">Back</Link>
         <h2>{name}</h2>
         <div className="repo-detail-commit">
           <div className="repo-detail-commit-top">
@@ -36,6 +52,11 @@ const RepoDetail = (props) => {
           </div>
           <div className="repo-detail-commit-description">
             <p> {repo.description}</p>
+          </div>
+        </div>
+        <div className="repo-detail-readme">
+          <div className="repo-detail-readme-content">
+            <ReactMarkdown children={readme} />,
           </div>
         </div>
       </div>
