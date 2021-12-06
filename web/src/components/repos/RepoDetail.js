@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Avatar from '@mui/material/Avatar';
 
 import './RepoDetail.css';
 
@@ -10,24 +11,42 @@ import './RepoDetail.css';
 
 const RepoDetail = (props) => {
   const { name } = useParams();
+  const { repos } = props;
 
-  return (
-    <React.Fragment>
+  const repo = repos.find((repository) => {
+    return repository.name === name;
+  });
+
+  if (repo) {
+    return (
       <div className="repo-detail">
         <button className="btn btn-primary">Back</button>
         <h2>{name}</h2>
         <div className="repo-detail-commit">
           <div className="repo-detail-commit-top">
-            <div className="repo-detail-commit-detail-author">Author</div>
-            <div className="repo-detail-commit-detail-date">Date Posted</div>
+            <div className="repo-detail-commit-picture">
+              <Avatar src={repo.owner.avatar_url} />
+            </div>
+            <div className="repo-detail-commit-detail-author">
+              <h3>{repo.owner.login}</h3>
+            </div>
+            <div className="repo-detail-commit-detail-date">
+              <h3> {repo.updated_at}</h3>
+            </div>
           </div>
           <div className="repo-detail-commit-description">
-            A description of the commit
+            <p> {repo.description}</p>
           </div>
         </div>
       </div>
-    </React.Fragment>
-  );
+    );
+  } else {
+    return (
+      <React.Fragment>
+        <h1>No repository with name {name} found.</h1>
+      </React.Fragment>
+    );
+  }
 };
 
 export default RepoDetail;

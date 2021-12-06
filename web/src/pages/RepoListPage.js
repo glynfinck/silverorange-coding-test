@@ -6,7 +6,7 @@ const RepoListPage = (props) => {
   return (
     <div>
       <Container maxWidth="md">
-        <RepoList />
+        <RepoList repos={props.repos} error={props.error} />
       </Container>
     </div>
   );

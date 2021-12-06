@@ -1,32 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import RepoListItem from './RepoListItem';
 
 import './RepoList.css';
 
-const reposURL = 'http://localhost:4000/repos';
-
 export function RepoList(props) {
-  const [repos, setRepos] = useState([]);
-  const [error, setError] = useState(null);
-
-  // initial load
-  useEffect(() => {
-    async function fetchMyAPI() {
-      try {
-        const response = await fetch(reposURL);
-        const response_json = await response.json();
-        setRepos(response_json.data);
-      } catch (err) {
-        setError(err);
-      }
-    }
-
-    fetchMyAPI();
-  }, []);
-
-  useEffect(() => {
-    console.log(repos);
-  }, [repos]);
+  const { error, repos } = props;
 
   const errorComponent = (
     <React.Fragment>
@@ -35,27 +13,26 @@ export function RepoList(props) {
   );
 
   const reposListComponent = (
+    <div className="repo-list">
+      {repos.map((repo) => {
+        return (
+          <RepoListItem
+            key={repo.id}
+            name={repo.name}
+            language={repo.language}
+            forks_count={repo.forks_count}
+            description={repo.description}
+          />
+        );
+      })}
+    </div>
+  );
+
+  return (
     <React.Fragment>
-      {error ? (
-        errorComponent
-      ) : (
-        <div className="repo-list">
-          {repos.map((repo) => {
-            return (
-              <RepoListItem
-                key={repo.id}
-                name={repo.name}
-                language={repo.language}
-                forks_count={repo.forks_count}
-                description={repo.description}
-              />
-            );
-          })}
-        </div>
-      )}
+      {error ? errorComponent : reposListComponent}
     </React.Fragment>
   );
-  return <React.Fragment>{reposListComponent}</React.Fragment>;
 }
 
 export default RepoList;

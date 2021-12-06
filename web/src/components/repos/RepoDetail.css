@@ -16,19 +16,33 @@
 .repo-detail-commit-top {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+  align-content: center;
   padding-bottom: 1rem;
   border-bottom: 1px solid gray;
 }
 
 .repo-detail-commit-author {
-  flex-grow: 1 1 auto;
+  flex: 0 1 auto;
   text-align: left;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.repo-detail-commit-picture {
+  flex: 0 0 auto;
+  text-align: left;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .repo-detail-commit-date {
   flex: 1 1 auto;
   text-align: right;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .repo-detail-commit-description {
