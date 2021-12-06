@@ -12,18 +12,21 @@ const RepoDetail = (props) => {
   const { name } = useParams();
 
   return (
-    <div className="repo-detail">
-      <h2>{name}</h2>
-      <div className="repo-detail-commit">
-        <div className="repo-detail-commit-top">
-          <div className="repo-detail-commit-detail-author">Author</div>
-          <div className="repo-detail-commit-detail-date">Date Posted</div>
-        </div>
-        <div className="repo-detail-commit-description">
-          A description of the commit
+    <React.Fragment>
+      <div className="repo-detail">
+        <button className="btn btn-primary">Back</button>
+        <h2>{name}</h2>
+        <div className="repo-detail-commit">
+          <div className="repo-detail-commit-top">
+            <div className="repo-detail-commit-detail-author">Author</div>
+            <div className="repo-detail-commit-detail-date">Date Posted</div>
+          </div>
+          <div className="repo-detail-commit-description">
+            A description of the commit
+          </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

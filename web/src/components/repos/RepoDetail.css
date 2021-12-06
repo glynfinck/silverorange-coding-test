@@ -1,7 +1,6 @@
 .repo-detail {
   display: flex;
   flex-direction: column;
-  background-color: whitesmoke;
   margin-top: 3rem;
 }
 
@@ -10,6 +9,7 @@
   flex-direction: column;
   padding: 1rem;
   border: 1px solid gray;
+  background-color: whitesmoke;
   border-radius: 0.5rem;
 }
 
