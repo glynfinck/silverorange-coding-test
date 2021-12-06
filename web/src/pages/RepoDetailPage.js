@@ -1,11 +1,15 @@
 import React from 'react';
+import RepoDetail from '../components/repos/RepoDetail';
+import Container from '@mui/material/Container';
 
-import './RepoDetailPage.css';
-
-export function RepoDetailPage(props) {
+const RepoDetailPage = (props) => {
   return (
     <div>
-      <h1>Detail Page</h1>
+      <Container maxWidth="md">
+        <RepoDetail />
+      </Container>
     </div>
   );
-}
+};
+
+export default RepoDetailPage;

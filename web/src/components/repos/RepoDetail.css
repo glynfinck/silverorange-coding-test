@@ -1,0 +1,53 @@
+.repo-detail {
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  margin-top: 3rem;
+}
+
+.repo-detail-commit {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+}
+
+.repo-detail-commit-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid gray;
+}
+
+.repo-detail-commit-author {
+  flex-grow: 1 1 auto;
+  text-align: left;
+}
+
+.repo-detail-commit-date {
+  flex: 1 1 auto;
+  text-align: right;
+}
+
+.repo-detail-commit-description {
+  padding-top: 1rem;
+  text-align: left;
+  flex: 1 1 auto;
+}
+
+.repo-detail-readme {
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+}
+
+.repo-detail-readme-title {
+  flex-grow: 1 1 auto;
+  text-align: left;
+}
+
+.repo-detial-readme-content {
+  flex-grow: 1 1 auto;
+}

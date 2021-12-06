@@ -39,7 +39,7 @@ export function RepoList(props) {
       {error ? (
         errorComponent
       ) : (
-        <ul className="repo-list">
+        <div className="repo-list">
           {repos.map((repo) => {
             return (
               <RepoListItem
@@ -51,7 +51,7 @@ export function RepoList(props) {
               />
             );
           })}
-        </ul>
+        </div>
       )}
     </React.Fragment>
   );

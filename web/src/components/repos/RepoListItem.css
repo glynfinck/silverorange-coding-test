@@ -1,3 +1,36 @@
 .repo-list-item {
   padding: 1rem 1rem;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid gray;
+}
+
+.repo-list-item-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.repo-list-item-name {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.repo-list-item-language {
+  flex: 1 1 auto;
+  text-align: right;
+}
+
+.repo-list-item-description {
+  padding-top: 1rem;
+  flex: 1 1 auto;
+  text-align: left;
+  color: gray;
+  padding-bottom: 1rem;
+}
+
+.repo-list-item-bottom {
+  flex: 1 1 auto;
+  text-align: left;
 }

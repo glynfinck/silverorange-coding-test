@@ -1,31 +1,23 @@
 import React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 
-import './RepoList.css';
+import './RepoListItem.css';
 
 // repository name, description, language, and forks count in the list
 
 const RepoListItem = (props) => {
   return (
     <li className="repo-list-item">
-      <Card sx={{ minWidth: 275 }}>
-        <CardContent>
-          <Typography variant="h5" component="div">
-            {props.name}
-          </Typography>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            {props.language}
-          </Typography>
-          <Typography variant="body2">{props.description}</Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">See more</Button>
-        </CardActions>
-      </Card>
+      <div className="repo-list-item-top">
+        <div className="repo-list-item-name">
+          <Link to={`/repos/${props.name}`}>{props.name}</Link>
+        </div>
+        <div className="repo-list-item-language">{props.language}</div>
+      </div>
+      <div className="repo-list-item-description">{props.description}</div>
+      <div className="repo-list-item-bottom">
+        Fork Count: {props.forks_count}
+      </div>
     </li>
   );
 };
